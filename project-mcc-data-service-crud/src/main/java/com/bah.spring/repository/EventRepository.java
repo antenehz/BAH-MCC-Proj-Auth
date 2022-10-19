@@ -1,8 +1,8 @@
-package com.webage.repository;
+package com.bah.spring.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.webage.domain.Event;
+import com.bah.spring.domain.Event;
 
 public interface EventRepository extends CrudRepository<Event, Long> {
 

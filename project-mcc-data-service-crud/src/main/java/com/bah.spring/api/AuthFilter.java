@@ -18,7 +18,7 @@ public class AuthFilter implements Filter {
     //JWTUtil jwtUtil = new JWTMockUtil();
     JWTUtil jwtUtil;
 
-    private String api_scope = "com.api.customer.r";
+    private String api_scope = "com.bah.spring.api.customer.r";
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)

@@ -1,4 +1,4 @@
-package com.webage.logging;
+package com.bah.spring.logging;
 
 public class ApiLogger {
 	private static String module = "na";

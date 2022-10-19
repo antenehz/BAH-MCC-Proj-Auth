@@ -1,4 +1,4 @@
-package com.webage.api;
+package com.bah.spring.api;
 
 import java.net.URI;
 import java.util.Iterator;
@@ -18,9 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.webage.domain.Customer;
-import com.webage.logging.ApiLogger;
-import com.webage.repository.CustomersRepository;
+import com.bah.spring.domain.Customer;
+import com.bah.spring.repository.CustomersRepository;
+import com.bah.spring.logging.ApiLogger;
 
 @RestController
 @RequestMapping("/customers")

@@ -1,4 +1,4 @@
-package com.webage.api;
+package com.bah.spring.api;
 
 import java.net.URI;
 import java.util.Optional;
@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.webage.domain.Registration;
-import com.webage.repository.RegistrationRepository;
+import com.bah.spring.domain.Registration;
+import com.bah.spring.repository.RegistrationRepository;
 
 @RestController
 @RequestMapping("/registrations")

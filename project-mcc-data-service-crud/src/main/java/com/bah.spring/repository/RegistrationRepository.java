@@ -1,8 +1,8 @@
-package com.webage.repository;
+package com.bah.spring.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.webage.domain.Registration;
+import com.bah.spring.domain.Registration;
 
 public interface RegistrationRepository extends CrudRepository<Registration, Long>{
 

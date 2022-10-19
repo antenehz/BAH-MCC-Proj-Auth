@@ -1,4 +1,4 @@
-package com.webage.domain;
+package com.bah.spring.domain;
 
 import java.util.Date;
 
