@@ -2,14 +2,15 @@ package com.bah.spring.domain;
 
 import org.json.JSONObject;
 
+
 public class CustomerFactory {
 
     public static Customer getCustomer(String json_string){
 
-        // parsing file "JSONExample.json" 
+        // parsing file "JSONExample.json"
         JSONObject jobj = new org.json.JSONObject(json_string);
 
-        // getting firstName and lastName 
+        // getting firstName and lastName
         int id = (int) jobj.get("id");
         String name = (String) jobj.get("name");
         String email = (String) jobj.get("email");
@@ -27,7 +28,7 @@ public class CustomerFactory {
     public static String getCustomerAsJSONString(Customer customer) {
         JSONObject jo = new JSONObject();
 
-        // putting data to JSONObject 
+        // putting data to JSONObject
         jo.put("name", customer.getName());
         jo.put("email", customer.getEmail());
         jo.put("password", customer.getPassword());

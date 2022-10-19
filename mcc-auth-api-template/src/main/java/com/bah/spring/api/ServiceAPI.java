@@ -16,7 +16,7 @@ public class ServiceAPI {
 	public static long instanceId = new Random().nextInt();
 	public static int count = 0;
 
-	
+
 	@GetMapping
 	public String healthCheck() {
 		count += 1;
@@ -24,6 +24,6 @@ public class ServiceAPI {
 		String dateformat = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.FULL).format(date);
 		return "<h3>The Authentication service is up and running!</h3>" + "<br/>Instance: " + instanceId + ", " + "<br/>DateTime: " + dateformat  + "<br/>CallCount: "+count;
 	}
-	
+
 
 }
