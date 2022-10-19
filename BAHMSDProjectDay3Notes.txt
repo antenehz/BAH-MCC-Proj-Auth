@@ -1,0 +1,86 @@
+Project Day 3
+
+-----------------------------------------------------------------------------------------
+JWT Lab - Review the sample code and test it
+
+1. Complete the JWT Lab, understand the components of JWT Lab
+- Go to your Project VM.
+Lab Directory:
+Computer/labfiles/Sample code for Projects/LabFiles/jwt-lab
+
+JWT Lab instructions document:
+Computer/labfiles/Sample code for Projects/LabAuthenticationWithJWT.pdf
+----------------------------------------------------------------------------------------------
+
+Project Tasks
+
+2. Create an authentication service project. This project code must be in a separate code repository.
+This authentication service end points:
+host:port	localhost:8081
+app context	/account
+
+3. This service must handle two requests.
+-- http://localhost:8081/account/token 
+-- http://localhost:8081/account/register
+
+4. How to service token request? 	
+/token
+-- Token controller/TokenApi receives a request (/token) for a token with request body of login data
+	- login data - name, password
+	- example: { "name": "Bruce", "password": "pass" }
+-- Connects to data service - RestTemplate OR HttpURLConnection
+	- validates the name (customer name)
+	- if the name is valid, validate password	
+	- if name and password are vaild, service is required to generate a java JWT Token
+	- send the Java JWT token to client
+The client may use the JWT token to send a request to get /customers, /events, /registrations end points
+and retrieve customers, events and registartions data.
+
+5. How to service register request?  
+/register
+-- Register contoller/RegisterApi receives a request (/register) to  register a new customer with new customer data
+	- new customer data - name, password, email
+	- example: { "name": "Fox", "password": "foxpass", "email": "foxy"}
+-- Connects to data service  - write to code to use RestTemplate OR HttpURLConnection
+	- POST new customer data (name, password, email) to Create a new customer service end point
+	- new customer data must be added to database
+
+6. Test service end points with Postman
+7. Add code to Data service to handle token requests and validate tokens using Authentication Filter
+	- Create an AuthFilter spring bean component
+	- Inspect the incoming request header with token
+	- validate the token, if valid token, pass the request to service end point
+	- if invalid token, send error response such as forbidden or any other user error message
+8. Test service to service to service integration using Postman
+
+9. Test service integration with front end client
+use the client code at Home/downloads/project/ReactClients/Day08
+
+Review the following files for proxy URLs locations of /api and /account
+default.conf
+src/setupproxy.js
+
+default.conf file
+------------------------------------------------------
+location /api {
+    proxy_pass http://localhost:8080;
+  }
+  location /account {
+    proxy_pass http://localhost:8081;
+  }  
+--------------------------------------------------------
+src/setupproxy.js
+
+module.exports = function(app) {
+
+    app.use(proxy('/api', { target: 'http://localhost:8080/' }));
+    app.use(proxy('/account', { target: 'http://localhost:8081/' }));
+
+};
+
+----------------------------------------------------------------------------------------
+You may use the template code and files, and add code and configuration.
+
+
+
+
