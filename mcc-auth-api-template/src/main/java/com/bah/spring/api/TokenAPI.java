@@ -114,7 +114,9 @@ public class TokenAPI {
 				apiHost = this.dataApiHost;
 			}
 			URL url = new URL("http://" + apiHost + "/api/customers/byname/" + username);
-
+			if(username.isEmpty()){
+				url = new URL("http://localhost:8080/api/customers/");
+			}
 			//URL url = new URL("http://localhost:8080/api/customers/byname/" + username);
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("GET");

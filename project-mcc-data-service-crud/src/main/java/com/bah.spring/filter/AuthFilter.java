@@ -1,14 +1,21 @@
 package com.bah.spring.filter;
 
-import com.bah.spring.jwt.JWTHelper;
-import com.bah.spring.logging.ApiLogger;
+import java.io.IOException;
+
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import javax.servlet.*;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import com.bah.spring.jwt.JWTHelper;
+import com.bah.spring.logging.ApiLogger;
 
 
 
@@ -61,7 +68,7 @@ public class AuthFilter implements Filter{
             }
         }
         // continue
-        res.sendError(HttpServletResponse.SC_FORBIDDEN, "Authentication failed.");
+        res.sendError(HttpServletResponse.SC_FORBIDDEN, "failed authentication");
 
     }
 

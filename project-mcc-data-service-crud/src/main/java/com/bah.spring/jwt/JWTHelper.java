@@ -1,4 +1,4 @@
-package com.bah.spring.api;
+package com.bah.spring.jwt;
 
 import java.util.Date;
 import java.util.Map;
@@ -11,10 +11,11 @@ import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
 
-public class JWTHelper implements JWTUtil {
-
-    @Override
-    public Token createToken(String scopes) {
+public class JWTHelper {
+    /*
+     * https://github.com/auth0/java-jwt
+     */
+    public static String createToken(String scopes) {
 
         try {
             Algorithm algorithm = Algorithm.HMAC256("secret");
@@ -26,14 +27,13 @@ public class JWTHelper implements JWTUtil {
                     .withClaim("scopes", scopes)
                     .withExpiresAt(expireDate)
                     .sign(algorithm);
-            return new Token(token);
+            return token;
         } catch (JWTCreationException exception){
             return null;
         }
     }
 
-    @Override
-    public boolean verifyToken(String token) {
+    public static boolean verifyToken(String token) {
 
         try {
             Algorithm algorithm = Algorithm.HMAC256("secret");
@@ -48,7 +48,7 @@ public class JWTHelper implements JWTUtil {
 
     }
 
-    public Map<String, Claim> getClaims(String token) {
+    public static Map<String, Claim> getClaims(String token) {
         try {
             Algorithm algorithm = Algorithm.HMAC256("secret");
             JWTVerifier verifier = JWT.require(algorithm)
@@ -61,8 +61,7 @@ public class JWTHelper implements JWTUtil {
         }
     }
 
-    @Override
-    public String getScopes(String token) {
+    public static String getScopes(String token) {
         try {
             Algorithm algorithm = Algorithm.HMAC256("secret");
             JWTVerifier verifier = JWT.require(algorithm)
