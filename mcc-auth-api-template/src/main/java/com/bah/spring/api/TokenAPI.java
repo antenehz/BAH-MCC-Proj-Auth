@@ -86,10 +86,10 @@ public class TokenAPI {
 	}
 
 	private static Token createToken(String username) {
-		String scopes = "com.webage.data.apis";
+		String scopes = "com.bah.spring.data.apis";
 		// special case for application user
 		if( username.equalsIgnoreCase("ApiClientApp")) {
-			scopes = "com.webage.auth.apis";
+			scopes = "com.bah.spring.auth.apis";
 		}
 		String token_string = JWTHelper.createToken(scopes);
 

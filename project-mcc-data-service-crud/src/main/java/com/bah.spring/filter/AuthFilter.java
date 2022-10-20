@@ -24,8 +24,8 @@ import com.bah.spring.logging.ApiLogger;
 public class AuthFilter implements Filter{
 
     //public static Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
-    private String auth_scope = "com.webage.auth.apis";
-    private String api_scope = "com.webage.data.apis";
+    private String auth_scope = "com.bah.spring.auth.apis";
+    private String api_scope = "com.bah.spring.data.apis";
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
