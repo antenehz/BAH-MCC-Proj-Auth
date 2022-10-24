@@ -1,7 +1,7 @@
 node {
     
     stage ("Checkout Auth Service"){
-        git branch: 'main', url: 'https://github.com/abarbuzza/BAH-MCCProj-Auth.git'
+        git branch: 'main', url: 'https://github.com/abarbuzza/BAH-MCC-Proj-Auth.git'
     }
     
     stage ("Pull Latest Changes") {
