@@ -4,12 +4,8 @@ node {
         git branch: 'main', url: 'https://github.com/abarbuzza/BAH-MCC-Proj-Auth.git'
     }
     
-    stage ("Pull Latest Changes") {
-        'git pull'
-    }
-    
     stage ("Gradle") {
-        'gradle clean build bootJar'
+        sh 'gradle clean build bootJar'
     }
     
     stage('User Acceptance Test') {
@@ -18,7 +14,7 @@ node {
         description: '', name: 'Pass')]
         if(response=="Yes") {
             stage('Deploy') {
-                'gradle build -x test'
+                sh 'gradle build -x test'
             }
         }
     }
