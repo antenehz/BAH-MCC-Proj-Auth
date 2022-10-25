@@ -18,7 +18,7 @@ node {
         description: '', name: 'Pass')]
         if(response=="Yes") {
             stage('Deploy') {
-                bat 'gradle build -x test'
+                'gradle build -x test'
             }
         }
     }
