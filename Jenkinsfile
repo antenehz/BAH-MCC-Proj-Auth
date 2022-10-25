@@ -9,6 +9,6 @@ node {
     }
     
     stage ("Gradle") {
-        'gradle clean build'
+        'gradle clean build bootJar'
     }
 }
