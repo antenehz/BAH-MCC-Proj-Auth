@@ -22,7 +22,6 @@ node {
     }
     
     stage ("Run Docker container instance"){
-	sh "docker stop event-auth"
         sh "docker run -d --rm --name event-auth -p 8081:8081 event-auth:v1.0"
      }
     
