@@ -23,7 +23,7 @@ node {
     
     stage ("Run Docker container instance"){
 	sh "docker stop event-auth"
-        sh "docker run -d --rm --name event-auth -p 8081:8081 --env API_HOST=10.100.88.215:8080 event-auth:v1.0"
+        sh "docker run -d --rm --name event-auth -p 8081:8081 event-auth:v1.0"
      }
     
     stage('User Acceptance Test') {
