@@ -1,6 +1,9 @@
 node {
     
     stage ("Checkout Auth Service"){
+	sh "docker stop event-auth"
+	sh "kubectl delete service event-auth"
+	sh "kubectl delete deployment event-auth"
         git branch: 'main', url: 'https://github.com/abarbuzza/BAH-MCC-Proj-Auth.git'
     }
     
@@ -22,7 +25,6 @@ node {
     }
     
     stage ("Run Docker container instance"){
-	sh "docker stop event-auth"
         sh "docker run -d --rm --name event-auth -p 8081:8081 event-auth:v1.0"
      }
     
@@ -32,8 +34,6 @@ node {
         description: '', name: 'Pass')]
         if(response=="Yes") {
           stage('Deploy to Kubenetes cluster') {
-		sh "kubectl delete service event-auth"
-		sh "kubectl delete deployment event-auth"
 	        sh "kubectl create deployment event-auth --image=event-auth:v1.0"
 		    //get the value of API_HOST from kubernetes services and set the env variable
 	        sh "set env deployment/event-auth API_HOST=\$(kubectl get service/data-api -o jsonpath='{.spec.clusterIP}'):8080"
