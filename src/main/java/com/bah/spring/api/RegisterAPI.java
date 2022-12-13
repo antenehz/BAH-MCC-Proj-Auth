@@ -29,7 +29,7 @@ public class RegisterAPI {
 
 	@PostMapping
 	public ResponseEntity<?> registerCustomer(@RequestBody Customer newCustomer, UriComponentsBuilder uri) {
-		if (!newCustomer.getId().equals(0) || newCustomer.getName() == null || newCustomer.getEmail() == null) {
+		if (newCustomer.getName() == null || newCustomer.getEmail() == null) {
 			// Reject we'll assign the customer id
 			return ResponseEntity.badRequest().build();
 		}
