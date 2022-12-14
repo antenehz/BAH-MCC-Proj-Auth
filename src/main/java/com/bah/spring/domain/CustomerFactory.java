@@ -10,7 +10,8 @@ public class CustomerFactory {
         JSONObject jobj = new org.json.JSONObject(json_string);
 
         // getting firstName and lastName 
-        String id = (String) jobj.get("id");
+        //ObjectId id = (ObjectId) jobj.get("id");
+        Integer id = jobj.getJSONObject("id").getInt("counter");
         String name = (String) jobj.get("name");
         String email = (String) jobj.get("email");
         String password = (String) jobj.get("password");
@@ -33,8 +34,7 @@ public class CustomerFactory {
         jo.put("password", customer.getPassword());
         jo.put("id", customer.getId());
 
-        String out = jo.toString();
-        return out;
+        return jo.toString();
     }
 
 }

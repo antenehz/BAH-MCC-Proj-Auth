@@ -1,31 +1,27 @@
 package com.bah.spring.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
-@Table(name="CUSTOMERS")
+@Document(collection = "CUSTOMERS")
 public class Customer {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	String id;
-	
-	@Column(name="CUSTOMER_NAME")
+	Integer id;
+
 	String name;
 	
 	String password;
 	
 	String email;
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
